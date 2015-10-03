@@ -70,17 +70,17 @@ function onDeviceReady() {
     $('#btnnext').on('click', function () {
         $(document).ready(function () {
         debugger;
-        var firstname = $('#txtregisterfirstname').val;
-        var lastname = $('#txtregisterlastname').val;
-        var email = $('#txtregisteremail').val;
-        var pass = $('#txtregisterPassword').val;
-        var mobile = $('#txtregistermobile').val;
-        var user = { Firstname: firstname, LastName: lastname, Email: email, Pass: pass, Mobile: mobile };
+        var firstname = document.getElementById('txtregisterlastname').value;
+        var lastname = document.getElementById('txtregisterlastname').value;
+        var email = document.getElementById('txtregisteremail').value; 
+        var pass = document.getElementById('txtregisterPassword').value; 
+        var mobile = document.getElementById('txtregistermobile').value; 
+       // var users = { Firstname: firstname, Lastname: lastname, Email: email, Pass: pass, Mobile: mobile };
         $.ajax({
-            url: "http://localhost:7819/api/Register",
+            url: "http://localhost:7819/api/Register?Firstname="+ firstname +"&Lastname="+ lastname +"&Email="+ email +"&Pass="+ pass +"&Mobile="+ mobile +"",
             type: "Post",
-            data: JSON.stringify(user), 
-            contentType: 'application/json; charset=utf-8',
+            
+           // contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (data.length > 0) {
                  
