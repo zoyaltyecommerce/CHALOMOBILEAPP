@@ -11,6 +11,7 @@ function onDeviceReady() {
         //);
 
         $(document).ready(function () {
+            debugger;
       
         var username = $("#txtUsername").val();
         var password = $("#txtPassword").val();
@@ -20,6 +21,7 @@ function onDeviceReady() {
                 success: function (data) {
                     if (data.length > 0)
                     {
+                        debugger;
                             navigator.notification.alert(
                             'Lohin Successfull',
                             alertDismissed// message
