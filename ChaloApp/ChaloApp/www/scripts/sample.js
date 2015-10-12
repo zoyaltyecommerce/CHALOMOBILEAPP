@@ -2,6 +2,8 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+
+
     $('#btnLogin').on('click', function () {
     //    navigator.notification.alert(
     //    'hello!',
@@ -19,18 +21,22 @@ function onDeviceReady() {
                 url: "http://localhost:7819/api/login?username="+ username +"&password="+ password +"",
                 type: "Get",
                 success: function (data) {
+                    debugger;
                     if (data.length > 0)
                     {
                         debugger;
-                            navigator.notification.alert(
-                            'Lohin Successfull',
-                            alertDismissed// message
-                                      // title
-                                             // buttonName
-                        );
-                        for (var i = 0; i < data.length; i++) {
+                        location.href = "search.html";
+                        //    navigator.notification.alert(
+                        //    'Lohin Successfull',
+                        //    alertDismissed// message
+                        //              // title
+                        //                     // buttonName
+                        //);
+                        //   var result=getlocations();
+                          
+                        //for (var i = 0; i < data.length; i++) {
 
-                        }
+                        //}
                     }
                     else
                     {
@@ -85,10 +91,10 @@ function onDeviceReady() {
            // contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (data.length > 0) {
-                 
-                    for (var i = 0; i < data.length; i++) {
+                    location.href = "search.html";
+                    //for (var i = 0; i < data.length; i++) {
 
-                    }
+                    //}
                 }
                 else {
 
@@ -107,6 +113,8 @@ function alertDismissed() {
     // do something
     
 }
+
+
 
 // Show a custom alert
 //
