@@ -28,22 +28,23 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <script src="scripts/jquery-1.9.1.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    
+
 </head>
 <body>
-    <script src="scripts/sample.js"></script>
-    <!--<script src="scripts/index.js"></script>-->
-    <h3>Chalo</h3><br /><br />
-    <div class="col-lg-12" style="text-align:center">
-        
-        <input type="button" value="Login" id="btnhomeLogin" class="btn btn-md" />
-        <input type="button" value="Register" id="btnhomeregister" class="btn btn-md" />
+    <script src="scripts/index.js"></script>
+    <div class="container">
+        <div class="col=md-12">
+            Pick up location:
+            <select  id="select_pickup"></select>
+            <br/>
+            Drop location
+            <select id="select_drop"></select>
+            <br/>
+            <input type="button" value="Search" id="btn_search" />
+        </div>
+
     </div>
-    
-    <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
-
-    
 </body>
 </html>
