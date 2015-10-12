@@ -11,10 +11,48 @@
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
-        
+        $(document).ready(function () {
+            debugger;
+            getlocations();
+            
+        });
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-    };
 
+  
+    };
+    function getlocations() {
+        debugger;
+        var result;
+        $.ajax({
+            url: "http://localhost:7819/api/search",
+            type: "Get",
+            success: function (data) {
+                if (data.length > 0) {
+                    debugger
+                   
+                    //    navigator.notification.alert(
+                    //    'Lohin Successfull',
+                    //    alertDismissed// message
+                    //              // title
+                    //                     // buttonName
+                    //);
+                    var locations = "";
+                    for (var i = 0; i < data.length; i++) {
+                        locations = locations+"<option value='" + data[i]["LOCATION_ID"] + "'>" + data[i]["LOCATION_NAME"] + "</option>";
+                    }
+                    document.getElementById('select_pickup').innerHTML = locations;
+                    document.getElementById('select_drop').innerHTML = locations;
+                }
+                else {
+
+                }
+
+
+            },
+            error: function (msg) { }
+        });
+        return result;
+    }
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
     };
