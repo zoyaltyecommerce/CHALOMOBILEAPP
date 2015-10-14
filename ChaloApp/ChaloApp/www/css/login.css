@@ -1,0 +1,389 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+* {
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+    .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+    
+body {
+	background-color:#e1e1e1;
+	font-family:"Segoe UI";
+}
+.top-Header
+{
+	width:100%;
+	height:42px;
+	background-color:#0B7456;
+}
+.btn-style
+{
+	background:none;
+	border:2px solid #0B7456;
+	padding:10px 0px;
+	color:#0B7456;
+	border-radius:0px !important;
+	
+	font-size:16px;
+	font-weight:bold;
+	transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-webkit-transition:all 0.3s;
+	-o-transition:all 0.3s;
+}
+.btn-facebook
+{
+	background:#3B5998;
+	
+	padding:10px 0px;
+	color:#fff;
+	border-radius:0px !important;
+	
+	font-size:16px;
+	font-weight:bold;
+	transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-webkit-transition:all 0.3s;
+	-o-transition:all 0.3s;
+}
+.btn-google
+{
+	background:#BD3518;
+	
+	padding:10px 0px;
+	color:#fff;
+	border-radius:0px !important;
+	
+	font-size:16px;
+	font-weight:bold;
+	transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-webkit-transition:all 0.3s;
+	-o-transition:all 0.3s;
+}
+.btn-style:hover
+{
+	color:#e1e1e1;
+	background-color:#0B7456;
+}
+.btn-google:hover
+{
+	color:#fff;
+	
+}
+.btn-facebook:hover
+{
+	color:#fff;
+	
+}
+.margin-div
+{
+	margin-bottom:30px;
+}
+
+
+@media screen and (max-width:320px)
+{
+	.login-form
+	{
+		background:none !important;
+		box-shadow:none !important;
+	}
+}
+
+
+.login-form {
+	margin-top: 100px;
+	color: #5d5d5d;
+	background: rgba(225,166,83,1);
+background: -moz-linear-gradient(top, rgba(225,166,83,1) 0%, rgba(0,0,0,0.5) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(225,166,83,1)), color-stop(100%, rgba(0,0,0,0.5)));
+background: -webkit-linear-gradient(top, rgba(225,166,83,1) 0%, rgba(0,0,0,0.5) 100%);
+background: -o-linear-gradient(top, rgba(225,166,83,1) 0%, rgba(0,0,0,0.5) 100%);
+background: -ms-linear-gradient(top, rgba(225,166,83,1) 0%, rgba(0,0,0,0.5) 100%);
+background: linear-gradient(to bottom, rgba(225,166,83,1) 0%, rgba(0,0,0,0.5) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1a653', endColorstr='#000000', GradientType=0 );
+
+	padding: 15px 5px;
+	overflow:auto;
+	
+	
+	box-shadow:0px 2px 5px rgba(237,188,118,0.5);
+}
+
+form[role=login] {
+	
+	padding: 26px;
+}
+.button 
+{
+	background: rgba(231,147,22,1);
+background: -moz-linear-gradient(top, rgba(231,147,22,1) 0%, rgba(232,181,86,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(231,147,22,1)), color-stop(100%, rgba(232,181,86,1)));
+background: -webkit-linear-gradient(top, rgba(231,147,22,1) 0%, rgba(232,181,86,1) 100%);
+background: -o-linear-gradient(top, rgba(231,147,22,1) 0%, rgba(232,181,86,1) 100%);
+background: -ms-linear-gradient(top, rgba(231,147,22,1) 0%, rgba(232,181,86,1) 100%);
+background: linear-gradient(to bottom, rgba(231,147,22,1) 0%, rgba(232,181,86,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e79316', endColorstr='#e8b556', GradientType=0 );
+border:none;
+margin-bottom:30px;
+}
+	form[role=login] h2 {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		text-align:center;
+		color:#fff;
+	}
+	input
+	{
+		color:#000 !important;
+	}
+	input::-webkit-input-placeholder {
+color: #5d5d5d !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #5d5d5d !important; 
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #5d5d5d !important;
+}
+ 
+input:-ms-input-placeholder {  
+color: #5d5d5d !important;}
+	
+.form-links {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
+}
+	.form-links a {
+		color: #fff !important;
+	}
+	ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 10px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss {
+	background-color: #F56505;
+}
+.social-network a.icoFacebook {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin {
+	background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 40px;
+	height: 40px;
+	font-size:14px;
+}
+.social-circle li i {
+	margin:0;
+	line-height:40px;
+	text-align: center;
+}
+
+.social {
+    margin: 0;
+    padding: 0;
+}
+
+.social ul {
+    margin: 0;
+    padding: 5px;
+}
+
+.social ul li {
+    margin: 5px;
+    list-style: none outside none;
+    display: inline-block;
+}
+.social i {
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    background-color: #909AA0;
+    font-size: 22px;
+    text-align:center;
+    padding-top: 12px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+
+.social i:hover {
+    color: #FFF;
+    text-decoration: none;
+    transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+.social .fa-facebook:hover { /* round facebook icon*/
+   background-color: #909AA0;
+}
+.social .fa-facebook { /* round facebook icon*/
+    background: #4060A5;
+}
+.social .fa-twitter:hover { /* round twitter icon*/
+     background-color: #909AA0;
+}
+.social .fa-twitter { /* round twitter icon*/
+    background: #00ABE3;
+}
+.social .fa-google-plus:hover { /* round google plus icon*/
+    background-color: #909AA0;
+}
+.social .fa-google-plus { /* round google plus icon*/
+    background: #e64522;
+}
+.social .fa-github:hover { /* round github icon*/
+    background: #343434;
+}
+
+.social .fa-pinterest:hover { /* round pinterest icon*/
+    background: #cb2027;
+}
+
+.social .fa-linkedin:hover { /* round linkedin icon*/
+      background-color: #909AA0;
+}
+.social .fa-linkedin { /* round linkedin icon*/
+    background: #0094BC;
+}
+
+.social .fa-flickr:hover { /* round flickr icon*/
+    background: #FF57AE;
+}
+
+.social .fa-instagram:hover { /* round instagram icon*/
+    background: #375989;
+}
+
+.social .fa-vimeo-square:hover { /* round vimeo square icon*/
+    background: #83DAEB;
+}
+
+.social .fa-stack-overflow:hover { /* round stack overflow icon*/
+    background: #FEA501;
+}
+
+.social .fa-dropbox:hover { /* round dropbox icon*/
+    background: #017FE5;
+}
+
+.social .fa-tumblr:hover { /* round tumblr icon*/
+    background: #3a5876;
+}
+
+.social .fa-dribbble:hover { /* round dribble icon*/
+    background: #F46899;
+}
+
+.social .fa-skype:hover { /* round skype icon*/
+    background: #00C6FF;
+}
+
+.social .fa-stack-exchange:hover { /* round stack exchange icon*/
+    background: #4D86C9;
+}
+
+.social .fa-youtube:hover { /* round youtube icon*/
+    background: #FF1F25;
+}
+
+.social .fa-xing:hover { /* round xing icon*/
+    background: #005C5E;
+}
+
+.social .fa-rss:hover { /* round rss icon*/
+    background: #e88845;
+}
+
+.social .fa-foursquare:hover { /* round foursquare icon*/
+    background: #09B9E0;
+}
+
+.social .fa-youtube-play:hover { /* round youtube play button icon*/
+    background: #DF192A;
+}
+ @media screen and (max-width: 768px) {
+          .side-collapse-container{
+              width:100%;
+              position:relative;
+              left:0;
+              transition:left .4s;
+          }
+          .side-collapse-container.out{
+              left:200px;
+          }
+          .side-collapse {
+              top:50px;
+              bottom:0;
+              left:0;
+              width:200px;
+              position:fixed;
+              overflow:hidden;
+              transition:width .4s;
+          }
+          .side-collapse.in {
+              width:0;
+          }
+      }
