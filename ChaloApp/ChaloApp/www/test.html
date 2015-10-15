@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" runat="server" id="div_menus"></ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a onclick="hidemenu();" class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i></a>
+                        <div class="navbar-form-custom">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search for something..." onkeyup="searchlinks(event);" class="form-control" name="top-search" id="txt_searchkey">
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="nav navbar-top-links navbar-right">
+                       
+
+
+
+                        <li>
+
+
+                            <a onclick="logout();"><i class="fa fa-sign-out"></i> Log out</a>
+                            
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-md-7" style="padding:10px 0px 10px 0px">
+                    <div class="search">
+                       
+                        <h3 id="hid_saving" style="display: none" align="center">Saving...</h3>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <button type="button" id="btn_search" onclick="buttonclick();" style="margin-right:5px" class="btn btn-sunny  btn-orangemain">Save&Share</button>
+
+                    <input type="button" id="open_btn" class="btn btn-sunny  btn-orangemain" class="btn btn-primary" value="upload files">
+                </div>
+            </div>
+
+            <script src="js/bootstrap.fd.js"></script>
+            <link href="js/bootstrap.fd.css" rel="stylesheet" />
+            <script>
+        $(document).ready(function () {
+
+            $("#open_btn").click(function () {
+                debugger;
+                $.FileDialog({ multiple: true }).on('files.bs.filedialog', function (ev) {
+                    var files = ev.files;
+                    debugger;
+                    var data = new FormData();
+                    for (var i = 0; i < files.length; i++) {
+                        data.append(files[i].name, files[i]);
+                    }
+                    // data.append("user", (document.getElementById('hid_userid')).value);
+                    var array = document.getElementById('hid_tab').value.split('_');
+                    var id = array[1];
+                    document.getElementById('open_btn').value = "Uploading...";
+                    document.getElementById('open_btn').disabled = true;
+                    $.ajax({
+                        url: "FileUploadHandler.ashx?user=" + document.getElementById('hid_userid').value + "&tabid=" + id + "",
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        processData: false,
+                        success: function (result) {
+                            debugger;
+
+                            selecttab(document.getElementById('hid_tab').value);
+                            document.getElementById('open_btn').value = "Upload Files";
+                            document.getElementById('open_btn').disabled = false;
+                            $('#loading').hide()
+                        },
+                        error: function (err) {
+                            alert('unexpected error');
+                            $('#loading').hide()
+                        }
+                    });
+                }).on('cancel.bs.filedialog', function (ev) {
+                    alert("Cancelled!");
+                });
+            });
+        });
+            </script>
+            <div class="wrapper wrapper-content">
+                <div class="row">
+
+                    <div class="col-lg-12 animated fadeInRight">
+                        <div class="row">
+                            <div class="col-lg-12" runat="server" id="div_tabcontent">
+                                <div class="file-box">
+                                    <div class="file">
+                                        <div class="container">
+                                            <div class="row">
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <a href="#">
+
+                                            <span class="corner"></span>
+                                            <div class="dropdown pull-right " style="z-index:1000">
+                                                <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                    <li><a href="#">Some action</a></li>
+                                                    <li><a href="#">Some other action</a></li>
+                                                    <li><a href="#">Some other action</a></li>
+
+                                                    <li>
+
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="icon">
+
+                                                <i class="fa fa-file"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                sujith is dream boy sujith is dream boy sujith is dream boy sujith is dream boy
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+                                            <div class="dropdown pull-right dropdownfilemanager">
+                                                <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                    <li><a href="#">Some action</a></li>
+                                                    <li><a href="#">Some other action</a></li>
+                                                    <li><a href="#">Some other action</a></li>
+
+                                                    <li>
+
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p1.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                Italy street.jpg
+                                                <br />
+                                                <small>Added: Jan 6, 2014</small>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p2.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                My feel.png
+                                                <br />
+                                                <small>Added: Jan 7, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-music"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Michal Jackson.mp3
+                                                <br />
+                                                <small>Added: Jan 22, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p3.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                Document_2014.doc
+                                                <br />
+                                                <small>Added: Fab 11, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="img-responsive fa fa-film"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Monica's birthday.mpg4
+                                                <br />
+                                                <small>Added: Fab 18, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <a href="#">
+                                        <div class="file">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-bar-chart-o"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Annual report 2014.xls
+                                                <br />
+                                                <small>Added: Fab 22, 2014</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-file"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Document_2014.doc
+                                                <br />
+                                                <small>Added: Jan 11, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p1.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                Italy street.jpg
+                                                <br />
+                                                <small>Added: Jan 6, 2014</small>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p2.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                My feel.png
+                                                <br />
+                                                <small>Added: Jan 7, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-music"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Michal Jackson.mp3
+                                                <br />
+                                                <small>Added: Jan 22, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p3.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                Document_2014.doc
+                                                <br />
+                                                <small>Added: Fab 11, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="img-responsive fa fa-film"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Monica's birthday.mpg4
+                                                <br />
+                                                <small>Added: Fab 18, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <a href="#">
+                                        <div class="file">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-bar-chart-o"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Annual report 2014.xls
+                                                <br />
+                                                <small>Added: Fab 22, 2014</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-file"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Document_2014.doc
+                                                <br />
+                                                <small>Added: Jan 11, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p1.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                Italy street.jpg
+                                                <br />
+                                                <small>Added: Jan 6, 2014</small>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p2.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                My feel.png
+                                                <br />
+                                                <small>Added: Jan 7, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-music"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Michal Jackson.mp3
+                                                <br />
+                                                <small>Added: Jan 22, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p3.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                Document_2014.doc
+                                                <br />
+                                                <small>Added: Fab 11, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="img-responsive fa fa-film"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Monica's birthday.mpg4
+                                                <br />
+                                                <small>Added: Fab 18, 2014</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <a href="#">
+                                        <div class="file">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-bar-chart-o"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                Annual report 2014.xls
+                                                <br />
+                                                <small>Added: Fab 22, 2014</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+
+                </div>
+                <div>
+                    <strong>Copyright</strong> Linkskart &copy; 2014-2015
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

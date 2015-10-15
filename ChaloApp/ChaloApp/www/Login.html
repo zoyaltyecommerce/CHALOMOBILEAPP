@@ -2,39 +2,91 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <title>Chalo Login</title>
+   
 
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
-
-    <!-- Allow requests to foo.com -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
-
-    <!-- Enable all requests, inline styles, and eval() -->
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-
-    <!-- Allow XHRs via https only -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
-
-    <!-- Allow iframe to https://cordova.apache.org/ -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
-    <title>FirstApp</title>
-
-    <!-- FirstApp references -->
-    <link href="css/index.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <script src="scripts/jquery-1.9.1.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/menustyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="scripts/menuscript.js"></script>
+    <link href="css/toastr.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
 
 </head>
 <body>
     <script src="scripts/sample.js"></script>
+    <script src="scripts/index.js"></script>
+    <link href="css/Common.css" rel="stylesheet" />
+    <div class="navbar navbar-inverse Head-Bg " role="navigation" id="slide-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" id="btn_signupback">
+                    <span class="input-group-addon" style="background:none !important; border:none !important;color:white ">
+                        <i class="fa fa-arrow-left"></i>
+                    </span>
+                </button>
+                <a class="navbar-brand" style="color:#fff;padding-bottom:0px" href="#">Login</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="login">
+                <label id="lbl_error" class="error" for="min" style="display:none"></label>
+                <div style="margin-bottom: 25px; border-bottom: 1px solid #0B7456;" class="input-group">
+                    <span class="input-group-addon" style="background:none !important; border:none !important"><i class="glyphicon glyphicon-user"></i></span>
+                    <input maxlength="30"  style="background:none !important; border:none !important;box-shadow:none; " id="txtUsername" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                </div>
+                <div style="margin-bottom: 25px; border-bottom: 1px solid #0B7456;" class="input-group">
+                    <span class="input-group-addon" style="background:none !important; border:none !important; "><i class="fa fa-lock"></i></span>
+                    <input maxlength="15"  style="background:none !important; border:none !important;box-shadow:none;" id="txtPassword" type="password" class="form-control" name="username" value="" placeholder="password">
+                </div>
+                <button class="btn btn-style btn-block  center-block" id="btnLogin">login</button>
+
+
+
+                <div style="margin-top:20px; width:100%">
+
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+
+                        <button class="btn btn-block btn-facebook"><i class="fa  fa-facebook"></i></button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+
+                        <button class="btn btn-block btn-google"><i class="fa fa-lg fa-google-plus"></i></button>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+      
+    </div>
+    <div class="loadwrapper" style="display:none">
+        <div class="spiner-example">
+            <div class="sk-spinner sk-spinner-wave">
+                <div class="sk-rect1"></div>
+                <div class="sk-rect2"></div>
+                <div class="sk-rect3"></div>
+                <div class="sk-rect4"></div>
+                <div class="sk-rect5"></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/tinycon.min.js"></script>
     <!--<script src="scripts/index.js"></script>-->
-    <h3>Login</h3><br /><br />
-    <div class="col-lg-12">
+    <!--<h3>Login</h3><br /><br />-->
+    <!--<div class="col-lg-12">
         <label>UserName</label><br />
         <input type="text" id="txtUsername" class="col-lg-12" /><br /><br />
         <label>Password</label><br />
@@ -42,7 +94,7 @@
         <input type="button" value="Login" id="btnLogin" class="btn btn-md" />
         <input type="button" value="Facebook" id="btnfacebook" class="btn btn-md" />
         <input type="button" value="Twitter" id="btntwitter" class="btn btn-md" />
-    </div>
+    </div>-->
 
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>

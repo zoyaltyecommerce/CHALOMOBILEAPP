@@ -7,43 +7,64 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
 
     <!-- Allow requests to foo.com -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">-->
 
     <!-- Enable all requests, inline styles, and eval() -->
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
 
     <!-- Allow XHRs via https only -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">-->
 
     <!-- Allow iframe to https://cordova.apache.org/ -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
-    <title>FirstApp</title>
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">-->
+   
+     <title>FirstApp</title>
 
     <!-- FirstApp references -->
-    <link href="css/index.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="css/index.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />-->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
     <script src="scripts/jquery-1.9.1.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     
 </head>
-<body>
+<body >
     <script src="scripts/sample.js"></script>
-    <!--<script src="scripts/index.js"></script>-->
-    <h3>Chalo</h3><br /><br />
-    <div class="col-lg-12" style="text-align:center">
-        
-        <input type="button" value="Login" id="btnhomeLogin" class="btn btn-md" />
-        <input type="button" value="Register" id="btnhomeregister" class="btn btn-md" />
-    </div>
-    
-    <!-- Cordova reference, this is added to your app when it's built. -->
-    <script src="cordova.js"></script>
-    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>
+    <div class="top-Header"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" style="margin-top:80px; margin-bottom:60px;">
+                <img src="images/logo-final.png" class="img-responsive center-block">
+            </div>
+            <div class="col-xs-12 margin-div">
+                <p style="text-align:center; font-size:18px; color:#0B7456; margin-bottom:30px;">The new way of booking cab</p>
+                <button id="btnhomeLogin" class="btn btn-lg btn-block btn-style center-block">SIGN IN</button>
+            </div>
+            <div class="col-xs-12 margin-div">
 
-    
+                <button id="btnhomeregister" class="btn btn-style btn-block btn-lg  center-block">REGISTER</button>
+            </div>
+        </div>
+        </div>
+
+        <!--<h3>Chalo</h3><br /><br />-->
+        <!--<div class="col-lg-12" style="text-align:center">
+
+            <input type="button" value="Login" id="btnhomeLogin" class="btn btn-md" />
+            <input type="button" value="Register" id="btnhomeregister" class="btn btn-md" />
+        </div>-->
+
+        <!-- Cordova reference, this is added to your app when it's built. -->
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+
+
 </body>
 </html>

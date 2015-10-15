@@ -1,12 +1,34 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8" />
+
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!-- Allow requests to foo.com -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
+
+    <!-- Enable all requests, inline styles, and eval() -->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
+    <!-- Allow XHRs via https only -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
+
+    <!-- Allow iframe to https://cordova.apache.org/ -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="scripts/sample.js"></script>
 <title>cabs</title>
 </head>
 
@@ -19,78 +41,14 @@
   </div>
   <div class="col-xs-12 margin-div" >
   <p style="text-align:center; font-size:18px; color:#0B7456; margin-bottom:30px;">The new way of booking cab</p>
-  <button class="btn btn-lg btn-block btn-style center-block">SIGN IN</button>
+  <button  id="btnhomeLogin" class="btn btn-lg btn-block btn-style center-block">SIGN IN</button>
   </div>
    <div class="col-xs-12 margin-div" >
  
-  <button class="btn btn-style btn-block btn-lg  center-block">REGISTER</button>
+  <button id="btnhomeregister" class="btn btn-style btn-block btn-lg  center-block">REGISTER</button>
   </div>
   </div>
-  <!--<div class="row" id="pwd-container">
-    <div class="col-md-4"></div>
-    
-    <div class="col-md-4">
-      <section class="login-form" >
-        <form method="post" action="#" role="login" >
-          <h2>Chalo</h2>
-          <div style="margin-bottom: 25px;border-bottom:1px solid rgba(0,0,0,0.4);" class="input-group">
-                                        <span class="input-group-addon" style="background:none !important; border:none !important" ><i class="glyphicon glyphicon-user"></i></span>
-                                        <input style="background:none !important; border:none !important;box-shadow:none; " id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
-                                    </div>
-                                    <div style="margin-bottom: 25px;border-bottom:1px solid rgba(0,0,0,0.4);" class="input-group">
-                                        <span class="input-group-addon" style="background:none !important; border:none !important; " ><i class="fa fa-lock"></i></span>
-                                        <input style="background:none !important; border:none !important;box-shadow:none;" id="login-username" type="text" class="form-control" name="username" value="" placeholder="password">                                        
-                                    </div>
-          
-          
-        
-          
-          
-          <button type="submit" name="go" class="btn button btn-lg btn-primary btn-block">Sign in</button>
-          <div>
-            <a href="#" style="color:#fff;">forgot password ?</a>
-          </div>
-          <div class="row">
-          <div class="col-md-12" style="margin-top:20px;">
-          
-                    <!--<ul class="social-network social-circle" >
-                       
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>			
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                    <div class="social">
-                    <a href="#"><i class="fa fa-lg fa-facebook"></i></a></div>
-                    </div>
-                     <div class="col-md-3 col-sm-3 col-xs-3">
-                    <div class="social">
-                    <a href="#"><i class="fa fa-lg fa-google-plus"></i></a></div>
-                    </div>
-                     <div class="col-md-3 col-sm-3 col-xs-3">
-                    <div class="social">
-                    <a href="#"><i class="fa fa-lg fa-twitter"></i></a></div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                    <div class="social">
-                    <a href="#"><i class="fa fa-lg fa-linkedin"></i></a></div>
-                    </div>
-				</div>
-                <div class="col-md-12" style=" margin-top:20px !important;">
-                <a href="#" style="color:#fff; font-size:14px; text-align:center;  ">Don't have an account yet? Sign Up</a>
-                </div>
-                </div>
-        </form>
-        
-       
-      </section>  
-      </div>
-      
-      <div class="col-md-4"></div>
-      
-
-  </div>-->
+ 
   
    
   

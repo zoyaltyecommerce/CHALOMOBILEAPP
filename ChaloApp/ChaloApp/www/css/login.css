@@ -22,7 +22,7 @@
     
 body {
 	background-color:#e1e1e1;
-	font-family:"Segoe UI";
+	font-family:"open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .top-Header
 {
@@ -125,7 +125,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1a653', end
 	box-shadow:0px 2px 5px rgba(237,188,118,0.5);
 }
 
-form[role=login] {
+.registercl {
 	
 	padding: 26px;
 }
@@ -142,7 +142,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e79316', end
 border:none;
 margin-bottom:30px;
 }
-	form[role=login] h2 {
+	.registercl h2 {
 		display: block;
 		margin: 0 auto;
 		margin-bottom: 20px;

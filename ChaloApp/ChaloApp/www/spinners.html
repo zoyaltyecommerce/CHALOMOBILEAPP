@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chalo</title>
+
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .btn-sunny {
+            color: #fff;
+            background-color: #18a689;
+            border-bottom: 3px solid #B6491F;
+            outline: none;
+            margin-top: 9px;
+            margin-bottom: 9px;
+            margin-left: -5px;
+        }
+
+        .btn-success {
+            background-color: #18a689;
+            border-color: #18a689;
+        }
+
+        .img-circle {
+            width: 50px;
+        }
+
+        .navbar-default navbar-static-side {
+            min-height: 605px;
+        }
+
+        .page-heading {
+            padding: 0px 10px 2px 10px !important;
+        }
+
+        .navbar-default {
+            background-color: #0A2A34 !important;
+        }
+
+        .gray-bg {
+            /*background: url("patterns/header-profile.png") no-repeat !important;*/
+        }
+
+        .img-responsive {
+            width: 215px !important;
+            height: 100px !important;
+        }
+
+        .dropdown-menu > li > a {
+            border-radius: 3px;
+            color: inherit;
+            line-height: 17px;
+            margin: 2px;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .dropdownfilemanager {
+            position: absolute;
+            padding-left: 200px;
+        }
+
+        .leftwidth {
+            width: 160px;
+            overflow: hidden;
+        }
+
+        .rightpadding {
+            padding-top: 8px !important;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #ccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+                border-left-color: #fff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+        .file-box {
+            float: left;
+            width: 235px !important;
+        }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+
+        .linkdrop {
+            /* float: right; */
+            z-index: 1000 !important;
+            float: right !important;
+            position: absolute;
+            padding-left: 180px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="images/dummy.jpg" />
+                             </span>
+                        <a data-toggle="dropdown"  href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong></span></span>
+                            </a>
+                        
+                    </div>
+                   
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-user"></i> <span class="nav-label">PROFILE</span></a>
+                  
+                </li>
+                <li>
+                    <a href="layouts.html"><i class="fa fa-credit-card"></i> <span class="nav-label">CHALO WALLET</span> <span class="label label-primary pull-right">100RS</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-history"></i> <span class="nav-label">HISTORY</span></a>
+                   
+                </li>    
+                <li>
+                    <a href="widgets.html"><i class="fa fa-diamond"></i> <span class="nav-label">REQUEST A NEW ROUTE</span> </a>
+                </li>           
+                <li>
+                    <a href="widgets.html"><i class="fa fa-paper-plane"></i> <span class="nav-label">PROMOTIONS</span> </a>
+                </li>
+               
+                <li>
+                    <a href="widgets.html"><i class="fa fa-hourglass-start"></i> <span class="nav-label">ONE WEEK BOOKING</span></a>
+                </li>
+                <li>
+                    <a href="widgets.html"><i class="fa fa-hourglass"></i> <span class="nav-label">ONE MONTH BOOKING</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-info"></i> <span class="nav-label">HELP</span>  </a>
+                    
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">TERMS&CONDITIONS</span></a>
+                    
+                </li>
+               
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>  </a>
+            <a  class="navbar-brand" style="color:#fff;padding-bottom:0px;" href="#">CHALO</a>
+        </div>
+            
+
+        </nav>
+        </div>
+            <!--<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Search for vehicles</h2>
+                    
+                </div>
+                
+            </div>-->
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    
+                    <div class="col-lg-5">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Search for vehicles</h5>
+                              
+                            </div>
+                            <div class="ibox-content">
+                                <div class="form-horizontal">
+                                    <p>Experience new way of travelling</p>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">PICKUP LOCATION</label>
+
+                                        <div class="col-lg-10"> 
+                                            <input type="email" placeholder="Pickup" class="form-control"> <span class="help-block m-b-none" style="display:none">Example block-level help text here.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">DROP LOCATION</label>
+
+                                        <div class="col-lg-10"><input type="text" placeholder="Drop" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">VIA</label>
+
+                                        <div class="col-lg-10"><input type="text" placeholder="Via" class="form-control"></div>
+                                    </div>
+                                     <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>SEARCH</strong></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Tinycon -->
+    <script src="js/plugins/tinycon/tinycon.min.js"></script>
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

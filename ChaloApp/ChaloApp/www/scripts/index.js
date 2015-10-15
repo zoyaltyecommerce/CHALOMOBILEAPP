@@ -12,16 +12,26 @@
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
         $(document).ready(function () {
-            debugger;
-            getlocations();
+          
+           // checklocalstorage();
             
         });
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-
+     
+        
   
     };
+
+    function checklocalstorage()
+    {
+        if(localStorage.CHALO_USER!=null && localStorage.CHALO_USER!="")
+        {
+            location.href = "search.html";
+        }
+    }
+
     function getlocations() {
-        debugger;
+        
         var result;
         $.ajax({
             url: "http://localhost:7819/api/search",

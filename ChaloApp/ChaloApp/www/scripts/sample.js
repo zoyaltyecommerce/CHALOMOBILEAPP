@@ -2,52 +2,119 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+    $('#btn_signupback').on('click', function () {
+        location.href = "index.html";
+    });
+    //$(document).ready(function () {
+    //    debugger;
+    //    $('.loadwrapper')
+    //        .hide()
+    //        .ajaxStart(function () {
+    //            $(this).show();
+    //        })
+    //        .ajaxStop(function () {
+    //            $(this).hide();
+    //        });
+    //});
+    function checkEmail(emailnew) {
 
+        var email = emailnew
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
+        if (!filter.test(email)) {
+            
+           
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+      
+   
+       
+    }
+    function mobileValidate(mobileno) {
+       // var x = document.form1.txtPhone.value;
+        var y = mobileno;
+       
+
+        if (isNaN(y) || y.indexOf(" ") != -1) {
+            
+            return "alphabets are not allowed in mobile number";
+        }
+       else if (y.length > 10) {
+           
+            return "Only 10 numericals are allowed in mobile number";
+       }
+       else
+       {
+           return "true";
+       }
+       
+    }
     $('#btnLogin').on('click', function () {
-    //    navigator.notification.alert(
-    //    'hello!',
-    //    alertDismissed,// message
-    //    'Game Over',            // title
-    //    'Done'                  // buttonName
+        //    navigator.notification.alert(
+        //    'hello!',
+        //    alertDismissed,// message
+        //    'Game Over',            // title
+        //    'Done'                  // buttonName
         //);
 
         $(document).ready(function () {
-            debugger;
-      
-        var username = $("#txtUsername").val();
-        var password = $("#txtPassword").val();
-            $.ajax({
-                url: "http://localhost:7819/api/login?username="+ username +"&password="+ password +"",
-                type: "Get",
-                success: function (data) {
-                    debugger;
-                    if (data.length > 0)
-                    {
-                        debugger;
-                        location.href = "search.html";
-                        //    navigator.notification.alert(
-                        //    'Lohin Successfull',
-                        //    alertDismissed// message
-                        //              // title
-                        //                     // buttonName
-                        //);
-                        //   var result=getlocations();
-                          
-                        //for (var i = 0; i < data.length; i++) {
 
-                        //}
+
+            var username = $("#txtUsername").val();
+            var password = $("#txtPassword").val();
+            if (username != "")
+            {
+                if(password!="")
+                {
+                    if(checkEmail(username))
+                    {
+                        $('.loadwrapper').show();
+
+                        $.ajax({
+                            url: "http://localhost:7819/api/login?username=" + username + "&password=" + password + "",
+                            type: "Get",
+                            success: function (data) {
+                                $('.loadwrapper').hide();
+                                if (data.length > 0) {
+                                   
+                                    localStorage.setItem("CHALO_USER", JSON.stringify(data[0]))
+                                    location.href = "search.html";
+                                }
+                                else {
+                                    document.getElementById('lbl_error').innerHTML = "Incorrect Email or Password";
+
+                                    document.getElementById('lbl_error').style.display = "inline-block";
+                                    //  alert('Email or password wrong');
+                                }
+
+
+                            },
+                            error: function (msg) { $('.loadwrapper').hide(); }
+                        });
                     }
                     else
                     {
-
+                        document.getElementById('lbl_error').style.display = "inline-block";
+                        document.getElementById('lbl_error').innerHTML = "Please enter a valid Email";
                     }
-                   
-                    
-                },
-                error: function (msg) { alert(msg); }
-            });
-        }); 
+                }
+                else
+                {
+                    document.getElementById('lbl_error').style.display = "inline-block";
+                    document.getElementById('lbl_error').innerHTML = "Please enter Password";
+                }
+            }
+            else
+            {
+                document.getElementById('lbl_error').style.display = "inline-block";
+                document.getElementById('lbl_error').innerHTML = "Please enter Email";
+            }
+          
+        });
     })
     $('#btnhomeLogin').on('click', function () {
         //    navigator.notification.alert(
@@ -77,33 +144,108 @@ function onDeviceReady() {
     })
     $('#btnnext').on('click', function () {
         $(document).ready(function () {
-        debugger;
-        var firstname = document.getElementById('txtregisterlastname').value;
-        var lastname = document.getElementById('txtregisterlastname').value;
-        var email = document.getElementById('txtregisteremail').value; 
-        var pass = document.getElementById('txtregisterPassword').value; 
-        var mobile = document.getElementById('txtregistermobile').value; 
-       // var users = { Firstname: firstname, Lastname: lastname, Email: email, Pass: pass, Mobile: mobile };
-        $.ajax({
-            url: "http://localhost:7819/api/Register?Firstname="+ firstname +"&Lastname="+ lastname +"&Email="+ email +"&Pass="+ pass +"&Mobile="+ mobile +"",
-            type: "Post",
-            
-           // contentType: 'application/json; charset=utf-8',
-            success: function (data) {
-                if (data.length > 0) {
-                    location.href = "search.html";
-                    //for (var i = 0; i < data.length; i++) {
 
-                    //}
+            var firstname = document.getElementById('txtregisterfirstname').value;
+
+            var email = document.getElementById('txtregisteremail').value;
+            var pass = document.getElementById('txtregisterPassword').value;
+            var mobile = document.getElementById('txtregistermobile').value;
+            var Couponcode = document.getElementById('txtcoupon').value;
+            document.getElementById('lbl_error').style.display = "none";
+           
+            if (firstname != "")
+            {
+                if(email!="")
+                {
+                    if(pass!="")
+                    {
+                        if(mobile!="")
+                        {
+                            if(checkEmail(email))
+                            {
+                                var mobv = mobileValidate(mobile);
+                                if(mobv=="true")
+                                {
+                                   
+                                    $('.loadwrapper').show();
+                                    $.ajax({
+                                        url: "http://localhost:7819/api/Register?Firstname=" + firstname + "&Email=" + email + "&Pass=" + pass + "&Mobile=" + mobile + "&code=" + Couponcode + "",
+                                        type: "Post",
+
+                                        // contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            $('.loadwrapper').hide();
+                                            if (data.id == "userexist") {
+                                               
+                                                document.getElementById('lbl_error').innerHTML = "Email or Mobile already exist";
+                                              
+                                                document.getElementById('lbl_error').style.display = "inline-block";
+                                               
+                                                //for (var i = 0; i < data.length; i++) {
+
+                                                //}
+                                            }
+                                            else if (data.id == "coupondoesnotexist") {
+                                               
+                                                document.getElementById('lbl_error').innerHTML = "Enter a valid coupon";
+
+                                                document.getElementById('lbl_error').style.display = "inline-block";
+                                                document.getElementById('txtcoupon').focus();
+                                            }
+                                            else {
+                                                location.href = "search.html";
+                                            }
+
+
+                                        },
+                                        error: function (msg) { $('.loadwrapper').hide(); }
+                                    });
+                                   
+                                }
+                                else
+                                {
+                                    document.getElementById('lbl_error').innerHTML = mobv;
+                                    document.getElementById('txtregistermobile').focus();
+                                    document.getElementById('lbl_error').style.display = "inline-block";
+                                }
+                            }
+                            else
+                            {
+                                document.getElementById('lbl_error').innerHTML = "Please enter a valid Email";
+                                document.getElementById('lbl_error').style.display = "inline-block";
+                                document.getElementById('txtregisteremail').focus();
+                            }
+                        }
+                        else
+                        {
+                            document.getElementById('lbl_error').innerHTML = "Please enter Mobile number";
+                            document.getElementById('lbl_error').style.display = "inline-block";
+                            document.getElementById('txtregistermobile').focus();
+                        }
+                    }
+                    else
+                    {
+                        
+                        document.getElementById('lbl_error').innerHTML = "Please enter Password";
+                        document.getElementById('lbl_error').style.display = "inline-block";
+                        document.getElementById('txtregisterPassword').focus();
+                    }
                 }
-                else {
-
+                else
+                {
+                    document.getElementById('lbl_error').innerHTML = "Please enter Email";
+                    document.getElementById('lbl_error').style.display = "inline-block";
+                    document.getElementById('txtregisteremail').focus();
                 }
-
-
-            },
-            error: function (msg) { alert(msg); }
-        });
+            }
+            else
+            {
+                document.getElementById('lbl_error').innerHTML = "Please enter First Name";
+                document.getElementById('lbl_error').style.display = "inline-block";
+                document.getElementById('txtregisterfirstname').focus();
+            }
+            // var users = { Firstname: firstname, Lastname: lastname, Email: email, Pass: pass, Mobile: mobile };
+          
         });
     })
 }
@@ -111,7 +253,7 @@ function onDeviceReady() {
 // alert dialog dismissed
 function alertDismissed() {
     // do something
-    
+
 }
 
 
